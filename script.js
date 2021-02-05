@@ -1,5 +1,7 @@
 "use strict";
 
+let result = "";
+
 //setting up
 window.addEventListener("load", start);
 
@@ -25,4 +27,11 @@ function readFirstNumber() {
 function readSecondNumber() {
   console.log("read second number");
   const firstNumber = document.querySelector("#secondnumber").value;
+  readOperator();
+}
+
+function readOperator() {
+  console.log("read operator");
+  document.querySelector("#firstnumber").value = result;
+  document.querySelector("#secondnumber").value = result;
 }
