@@ -1,6 +1,5 @@
 "use strict";
-
-let result = "";
+const resultat = "";
 
 //setting up
 window.addEventListener("load", start);
@@ -35,10 +34,21 @@ function readOperator() {
   const firstInputNumber = readFirstNumber();
   const secondInputNumber = readSecondNumber();
   calculationPlus(firstInputNumber, secondInputNumber);
+  calculationMinus(firstInputNumber, secondInputNumber);
 }
 
 function calculationPlus(firstnumber, secondnumber) {
   //takes the numbers fra readOperator and add them
   const resultat = firstnumber + secondnumber;
   console.log(resultat);
+  writeResultInFirstNumberField();
 }
+
+function calculationMinus(firstnumber, secondnumber) {
+  //takes the numbers fra readOperator and add them
+  const resultat = firstnumber - secondnumber;
+  console.log(resultat);
+  writeResultInFirstNumberField();
+}
+
+function writeResultInFirstNumberField() {}
