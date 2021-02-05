@@ -12,26 +12,33 @@ function start() {
 
 function clickCalculate() {
   console.log("click calculate");
-  document
-    .querySelector("#calculate")
-    .addEventListener("click", readFirstNumber);
+  document.querySelector("#calculate").addEventListener("click", readOperator);
 }
 
 function readFirstNumber() {
   console.log("read first number");
-  //read first number
-  const firstNumber = document.querySelector("#firstnumber").value;
-  readSecondNumber();
+  //read first number and convert string into a number
+  const firstNumber = parseInt(document.querySelector("#firstnumber").value);
+  return firstNumber;
 }
 
 function readSecondNumber() {
+  //read second number and convert string into a number
   console.log("read second number");
-  const firstNumber = document.querySelector("#secondnumber").value;
-  readOperator();
+  const secondNumber = parseInt(document.querySelector("#secondnumber").value);
+  return secondNumber;
 }
 
 function readOperator() {
+  //collect numbers
   console.log("read operator");
-  document.querySelector("#firstnumber").value = result;
-  document.querySelector("#secondnumber").value = result;
+  const firstInputNumber = readFirstNumber();
+  const secondInputNumber = readSecondNumber();
+  calculationPlus(firstInputNumber, secondInputNumber);
+}
+
+function calculationPlus(firstnumber, secondnumber) {
+  //takes the numbers fra readOperator and add them
+  const resultat = firstnumber + secondnumber;
+  console.log(resultat);
 }
