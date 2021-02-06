@@ -6,6 +6,7 @@ window.addEventListener("load", start);
 function start() {
   console.log("start");
   clickCalculate();
+  document.querySelector("#clear").addEventListener("click", clear);
 }
 
 function clickCalculate() {
@@ -95,4 +96,8 @@ function writeResultInFirstNumberField(resultat) {
   document.getElementById("results").appendChild(listElement);
   document.querySelector("#results").scrollTo(0, 10000);
   document.querySelector("#firstnumber").value = resultat.toString();
+}
+
+function clear() {
+  document.getElementById("results").innerHTML = "";
 }
