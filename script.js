@@ -1,5 +1,4 @@
 "use strict";
-const resultat = "";
 
 //setting up
 window.addEventListener("load", start);
@@ -33,22 +32,45 @@ function readOperator() {
   console.log("read operator");
   const firstInputNumber = readFirstNumber();
   const secondInputNumber = readSecondNumber();
-  calculationPlus(firstInputNumber, secondInputNumber);
-  calculationMinus(firstInputNumber, secondInputNumber);
+  const operator = document.querySelector("#operator").value;
+
+  if (operator == "add") {
+    calculationPlus(firstInputNumber, secondInputNumber);
+  } else if (operator == "sub") {
+    calculationMinus(firstInputNumber, secondInputNumber);
+  } else if (operator == "mul") {
+    calculationMul(firstInputNumber, secondInputNumber);
+  } else if (operator == "div") {
+    calculationDiv(firstInputNumber, secondInputNumber);
+  }
 }
 
 function calculationPlus(firstnumber, secondnumber) {
   //takes the numbers fra readOperator and add them
   const resultat = firstnumber + secondnumber;
   console.log(resultat);
-  writeResultInFirstNumberField();
+  writeResultInFirstNumberField(resultat);
 }
 
 function calculationMinus(firstnumber, secondnumber) {
   //takes the numbers fra readOperator and add them
   const resultat = firstnumber - secondnumber;
   console.log(resultat);
-  writeResultInFirstNumberField();
+  writeResultInFirstNumberField(resultat);
+}
+
+function calculationMul(firstnumber, secondnumber) {
+  //takes the numbers fra readOperator and add them
+  const resultat = firstnumber * secondnumber;
+  console.log(resultat);
+  writeResultInFirstNumberField(resultat);
+}
+
+function calculationDiv(firstnumber, secondnumber) {
+  //takes the numbers fra readOperator and add them
+  const resultat = firstnumber / secondnumber;
+  console.log(resultat);
+  writeResultInFirstNumberField(resultat);
 }
 
 function writeResultInFirstNumberField() {}
