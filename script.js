@@ -35,9 +35,9 @@ function readOperator() {
   const operator = document.querySelector("#operator").value;
 
   if (operator == "add") {
-    calculationPlus(firstInputNumber, secondInputNumber);
+    calculationAdd(firstInputNumber, secondInputNumber);
   } else if (operator == "sub") {
-    calculationMinus(firstInputNumber, secondInputNumber);
+    calculationSub(firstInputNumber, secondInputNumber);
   } else if (operator == "mul") {
     calculationMul(firstInputNumber, secondInputNumber);
   } else if (operator == "div") {
@@ -45,32 +45,40 @@ function readOperator() {
   }
 }
 
-function calculationPlus(firstnumber, secondnumber) {
+function calculationAdd(firstnumber, secondnumber) {
   //takes the numbers fra readOperator and add them
   const resultat = firstnumber + secondnumber;
   console.log(resultat);
   writeResultInFirstNumberField(resultat);
 }
 
-function calculationMinus(firstnumber, secondnumber) {
-  //takes the numbers fra readOperator and add them
+function calculationSub(firstnumber, secondnumber) {
+  //takes the numbers fra readOperator and sub them
   const resultat = firstnumber - secondnumber;
   console.log(resultat);
   writeResultInFirstNumberField(resultat);
 }
 
 function calculationMul(firstnumber, secondnumber) {
-  //takes the numbers fra readOperator and add them
+  //takes the numbers fra readOperator and mul them
   const resultat = firstnumber * secondnumber;
   console.log(resultat);
   writeResultInFirstNumberField(resultat);
 }
 
 function calculationDiv(firstnumber, secondnumber) {
-  //takes the numbers fra readOperator and add them
+  //takes the numbers fra readOperator and div them
   const resultat = firstnumber / secondnumber;
   console.log(resultat);
   writeResultInFirstNumberField(resultat);
 }
 
-function writeResultInFirstNumberField() {}
+function writeResultInFirstNumberField(resultat) {
+  //creats an elemnt to put inside "listElement"
+  let listElement = document.createElement("li");
+  let createListString = document.createTextNode(resultat.toString());
+  listElement.appendChild(createListString);
+  document.getElementById("results").appendChild(listElement);
+  document.querySelector("#results").scrollTo(0, 10000);
+  document.querySelector("#firstnumber").value = resultat.toString();
+}
